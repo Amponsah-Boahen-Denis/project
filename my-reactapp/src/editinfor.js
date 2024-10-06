@@ -16,7 +16,7 @@ function EditRecord() {
   });
 
   useEffect(() => {
-    axios.get('http://localhost:5000/account')
+    axios.get('https://fullstack-mern-api.vercel.app/account')
       .then(response => {
         setAccounts(response.data);
         const account = response.data.find(acc => acc._id === selectedAccountId);
@@ -48,21 +48,28 @@ function EditRecord() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.put(`http://localhost:5000/account/${selectedAccountId}`, formData)
+    axios.put(`https://fullstack-mern-api.vercel.app/account/${selectedAccountId}`, formData)
       .then(response => {
-        navigate('/'); // Navigate back to the home page
+        //navigate('/'); // Navigate back to the home page
       })
       .catch(error => {
         console.error('There was an error updating the data!', error);
       });
   };
 
+  const handleSubmit2 = (event) => {
+    event.preventDefault();
+        navigate('/password'); // Navigate back to the home page
+  };
+
   return (
     <div className='container'>
-      <h1 className='h2'>Edit Social Media Account</h1>
+      <h1 className='h2'>PASSWORD MANAGER</h1>
+      <p>This app helps you securely manage and track your social media account credentials.</p>
+      <button onClick={handleSubmit2} className='butt'> Add Account</button>
       <div>
         <select className='sel' value={selectedAccountId} onChange={handleAccountChange}>
-          <option value="">Select an account</option>
+          <option value="">Select already existed account</option>
           {accounts.map(account => (
             <option key={account._id} value={account._id}>{account.Description}</option>
           ))}
@@ -87,15 +94,7 @@ function EditRecord() {
             onChange={handleChange}
           />
         </div>
-        <div>
-          <label className='label'>Notes:</label>
-          <input className='input'
-            type="text"
-            name="Notes"
-            value={formData.Notes}
-            onChange={handleChange}
-          />
-        </div>
+
         <div>
           <label className='label'>URL:</label>
           <input className='input'
@@ -105,7 +104,19 @@ function EditRecord() {
             onChange={handleChange}
           />
         </div>
-        <button type="submit" className='butt'> Update & Exit</button>
+
+        <div>
+          <label className='label'>Notes:</label>
+          <input className='input'
+            type="text"
+            name="Notes"
+            value={formData.Notes}
+            onChange={handleChange}
+          />
+        </div>
+       
+        <button type="submit" className='butt'>Edit Above & Update</button>
+       
       </form>
     </div>
   );
