@@ -21,14 +21,18 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ViewRecords from './password';  // Component to view records
 import EditRecord from './editinfor';  // Component to edit records
 import AddPassword from './addpassword';  // Component to add new password
+import Register from './register';
+import Login from './login';
 
 function App() {
   return (
     <Router>
       <Routes>
-      <Route path="/" element={<EditRecord />} /> {/* Generic edit route */}
+      <Route path="/edit" element={<EditRecord />} /> {/* Generic edit route */}
         <Route path="/edit/:id" element={<EditRecord />} /> {/* Route for editing a specific record */}
         <Route path="/password" element={<ViewRecords />} /> {/* Route for adding a new password */}
+        <Route path="/register" element={<Register />} />
+         <Route path="/" element={<Login />} />
       </Routes>
     </Router>
   );
