@@ -138,7 +138,7 @@ const Register = () => {
     e.preventDefault(); // Prevent default form submission
 
     try {
-      const response = await axios.post('https://lastback.vercel.app/register', formData, {
+      const response = await axios.post('https://projectback.vercel.app/register', formData, {
         headers: { 'Content-Type': 'application/json' },
       });
 
