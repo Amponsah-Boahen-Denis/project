@@ -207,7 +207,7 @@ app.use(session({
 
 // CORS configuration
 app.use(cors({
-  origin: ["https://lastfront.vercel.app", "http://localhost:3000"], // Update this with the correct frontend origin
+  origin: ["https://projectfront-six.vercel.app "http://localhost:3000"], // Update this with the correct frontend origin
   methods: ["GET", "POST", "PUT", "OPTIONS"],
   credentials: true, // Allow credentials (cookies)
 }));
