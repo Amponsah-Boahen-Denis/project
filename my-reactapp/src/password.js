@@ -165,7 +165,7 @@ function AddPassword() {
 
     try {
       // Send POST request to the server to add a new password entry with Authorization header
-      const response = await axios.post('https://lastback.vercel.app/account', newAccount, {
+      const response = await axios.post('https://projectback.vercel.app/account', newAccount, {
         headers: {
           Authorization: `Bearer ${token}`, // Include JWT token in the request
         },
