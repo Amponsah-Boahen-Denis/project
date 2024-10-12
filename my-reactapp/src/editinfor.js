@@ -179,7 +179,7 @@ function EditRecord() {
           return;
         }
 
-        const response = await axios.get('https://lastback.vercel.app/account', {
+        const response = await axios.get('https://projectback.vercel.app/account', {
           headers: {
             Authorization: `Bearer ${token}`
           }
